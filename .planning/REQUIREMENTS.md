@@ -22,8 +22,8 @@
 - [ ] **DATA-02**: Fetches gage height (parameter 00065, unit: ft) for each station
 - [ ] **DATA-03**: Fetches discharge (parameter 00060, unit: cfs) for each station
 - [ ] **DATA-04**: Fetches water temperature (parameter 00010, unit: °C) and displays it converted to °F
-- [ ] **DATA-05**: Fetches turbidity (parameter 63680) where available; shows "—" for stations that don't report it
-- [ ] **DATA-06**: Stations that don't report a given parameter show "—" rather than an error
+- [ ] **DATA-05**: Fetches turbidity (parameter 63680) for stations that report it (02335000, 02335880, 02336000 are confirmed turbidity stations); turbidity row is omitted entirely for stations that don't report it
+- [ ] **DATA-06**: If a station doesn't report a parameter, that row is omitted from the card entirely (no "—" placeholder)
 
 ### Station Cards
 
@@ -66,17 +66,17 @@
 | LAYOUT-01 | Phase 1 | Pending |
 | LAYOUT-02 | Phase 1 | Pending |
 | LAYOUT-03 | Phase 1 | Pending |
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| DATA-04 | Phase 1 | Pending |
-| DATA-05 | Phase 1 | Pending |
-| DATA-06 | Phase 1 | Pending |
-| CARD-01 | Phase 1 | Pending |
-| CARD-02 | Phase 1 | Pending |
-| CARD-03 | Phase 1 | Pending |
-| DAM-01 | Phase 1 | Pending |
-| DAM-02 | Phase 1 | Pending |
+| DATA-01 | Phase 2 | Pending |
+| DATA-02 | Phase 2 | Pending |
+| DATA-03 | Phase 2 | Pending |
+| DATA-04 | Phase 2 | Pending |
+| DATA-05 | Phase 2 | Pending |
+| DATA-06 | Phase 2 | Pending |
+| CARD-01 | Phase 2 | Pending |
+| CARD-02 | Phase 2 | Pending |
+| CARD-03 | Phase 2 | Pending |
+| DAM-01 | Phase 2 | Pending |
+| DAM-02 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 16 total
@@ -85,4 +85,4 @@
 
 ---
 *Requirements defined: 2026-05-17*
-*Last updated: 2026-05-17 after initial definition*
+*Last updated: 2026-05-17 after roadmap creation (traceability updated to 2-phase structure)*

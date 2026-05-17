@@ -19,7 +19,7 @@ Open the file and immediately know current river conditions at each gauge — no
 - [ ] Single `.html` file — zero external dependencies, opens locally in any browser
 - [ ] Fetches live data from USGS Instantaneous Values API on page load for 9 stations
 - [ ] Stations: 023344030, 02335000, 02335450, 02335815, 02335880, 02336000, 02337170, 02338000, 02338500
-- [ ] Each station card shows: gage height, discharge, water temperature (°F), turbidity (where available)
+- [ ] Each station card shows: gage height, discharge, water temperature (°F), and turbidity for stations that report it (02335000, 02335880, 02336000); turbidity row is omitted entirely for others
 - [ ] Clicking a station card opens the USGS monitoring page for that station in a new tab
 - [ ] Embeds USACE Hydropower schedule for Buford Dam (Lake Lanier) via iframe
 - [ ] Iframe fallback: if USACE blocks embedding (X-Frame-Options), show a direct link instead
