@@ -10,7 +10,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Static Shell** - Single HTML file opens in a browser with full layout structure, dam section placeholder at top, and station card skeletons for all 9 stations
+- [x] **Phase 1: Static Shell** - Single HTML file opens in a browser with full layout structure, dam section placeholder at top, and station card skeletons for all 9 stations
 - [ ] **Phase 2: Live Dashboard** - USGS data fetched and displayed on all station cards, dam iframe embedded with fallback link, station cards navigate to USGS monitoring pages on click
 
 ---
@@ -29,7 +29,7 @@
   4. The page has no broken imports, missing stylesheets, or JavaScript errors on open
 **Plans:** 1 plan
 Plans:
-- [ ] 01-01-PLAN.md — Write hooch-snapshot.html complete static shell (dam section + nine station cards, all CSS inline, zero external dependencies)
+- [x] 01-01-PLAN.md — Write hooch-snapshot.html complete static shell (dam section + nine station cards, all CSS inline, zero external dependencies)
 
 ### Phase 2: Live Dashboard
 **Goal:** Opening the file fetches live USGS river conditions for all 9 stations and displays them on the cards, the dam schedule is embedded via iframe (with a direct link fallback), and each card is clickable to the USGS monitoring page.
@@ -51,7 +51,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Static Shell | 0/1 | Planning done | - |
+| 1. Static Shell | 1/1 | Complete | 2026-05-17 |
 | 2. Live Dashboard | 0/0 | Not started | - |
 
 ---
