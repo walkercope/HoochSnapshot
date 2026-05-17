@@ -27,7 +27,9 @@
   2. A Buford Dam section is visible at the top of the page
   3. Nine station card placeholders appear below the dam section in the exact required order (023344030 first, 02338500 last)
   4. The page has no broken imports, missing stylesheets, or JavaScript errors on open
-**Plans:** TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 01-01-PLAN.md — Write hooch-snapshot.html complete static shell (dam section + nine station cards, all CSS inline, zero external dependencies)
 
 ### Phase 2: Live Dashboard
 **Goal:** Opening the file fetches live USGS river conditions for all 9 stations and displays them on the cards, the dam schedule is embedded via iframe (with a direct link fallback), and each card is clickable to the USGS monitoring page.
@@ -49,7 +51,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Static Shell | 0/0 | Not started | - |
+| 1. Static Shell | 0/1 | Planning done | - |
 | 2. Live Dashboard | 0/0 | Not started | - |
 
 ---
@@ -80,3 +82,4 @@
 
 ---
 *Roadmap created: 2026-05-17*
+*Updated: 2026-05-17 — Phase 1 planning complete (1 plan)*
