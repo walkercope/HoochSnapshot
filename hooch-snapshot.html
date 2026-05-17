@@ -113,6 +113,13 @@
       display: block;
     }
 
+    .card-header .station-id {
+      font-size: var(--text-label);
+      color: var(--color-text-muted);
+      display: block;
+      margin-top: var(--space-xs);
+    }
+
     .stat-row {
       display: flex;
       justify-content: space-between;
@@ -146,25 +153,27 @@
 
     <section id="dam">
       <h2>Buford Dam Release Schedule</h2>
-      <p>Dam release schedule will appear here.</p>
+      <p id="dam-fallback"><a href="https://spatialdata.usace.army.mil/Hydropower/" target="_blank" rel="noopener noreferrer">View USACE Buford Dam Hydropower Schedule</a></p>
+      <iframe id="dam-iframe" src="https://spatialdata.usace.army.mil/Hydropower/" width="100%" height="500" style="border:none;display:block;margin-top:var(--space-md);" title="Buford Dam Release Schedule" loading="lazy"></iframe>
     </section>
 
     <section id="stations">
 
       <!-- Station 1 -->
-      <div class="card" data-station="023344030">
+      <div class="card" data-station="02334430">
         <div class="card-header">
           <span class="station-name">Buford Dam</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
@@ -174,20 +183,21 @@
       <div class="card" data-station="02335000">
         <div class="card-header">
           <span class="station-name">Norcross</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="63680">
           <span class="label">Turbidity</span>
           <span class="value">— FNU</span>
         </div>
@@ -197,16 +207,17 @@
       <div class="card" data-station="02335450">
         <div class="card-header">
           <span class="station-name">Roswell</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
@@ -216,16 +227,17 @@
       <div class="card" data-station="02335815">
         <div class="card-header">
           <span class="station-name">Below Morgan Falls</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
@@ -235,20 +247,21 @@
       <div class="card" data-station="02335880">
         <div class="card-header">
           <span class="station-name">Powers Island</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="63680">
           <span class="label">Turbidity</span>
           <span class="value">— FNU</span>
         </div>
@@ -258,20 +271,21 @@
       <div class="card" data-station="02336000">
         <div class="card-header">
           <span class="station-name">Atlanta</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="63680">
           <span class="label">Turbidity</span>
           <span class="value">— FNU</span>
         </div>
@@ -281,16 +295,17 @@
       <div class="card" data-station="02337170">
         <div class="card-header">
           <span class="station-name">Fairburn</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
@@ -300,16 +315,17 @@
       <div class="card" data-station="02338000">
         <div class="card-header">
           <span class="station-name">Whitesburg</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
@@ -319,16 +335,17 @@
       <div class="card" data-station="02338500">
         <div class="card-header">
           <span class="station-name">Franklin</span>
+          <span class="station-id"></span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00065">
           <span class="label">Gage Height</span>
           <span class="value">— ft</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00060">
           <span class="label">Discharge</span>
           <span class="value">— cfs</span>
         </div>
-        <div class="stat-row">
+        <div class="stat-row" data-param="00010">
           <span class="label">Temperature</span>
           <span class="value">— °F</span>
         </div>
@@ -338,5 +355,85 @@
 
   </main>
 
+  <script>
+  (function() {
+    'use strict';
+
+    var STATIONS = ['02334430','02335000','02335450','02335815','02335880','02336000','02337170','02338000','02338500'];
+    var PARAMS = ['00065','00060','00010','63680'];
+    var API_URL = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + STATIONS.join(',') + '&parameterCd=' + PARAMS.join(',') + '&format=json';
+    var STALE_MS = 2 * 60 * 60 * 1000;
+
+    function getReading(map, stationId, paramCode) {
+      var key = 'USGS:' + stationId + ':' + paramCode + ':00000';
+      var ts = map[key];
+      if (!ts) return null;
+      var reading = ts.values[0].value[0];
+      if (!reading || reading.value === '-999999') return null;
+      if ((Date.now() - new Date(reading.dateTime).getTime()) > STALE_MS) return null;
+      return reading.value;
+    }
+
+    function populateCard(stationId, map) {
+      var card = document.querySelector('.card[data-station="' + stationId + '"]');
+      if (!card) return;
+
+      var idSpan = card.querySelector('.station-id');
+      if (idSpan) idSpan.textContent = stationId;
+
+      card.querySelectorAll('.stat-row[data-param]').forEach(function(row) {
+        var paramCode = row.dataset.param;
+        var rawValue = getReading(map, stationId, paramCode);
+        if (rawValue === null) { row.remove(); return; }
+        var valueSpan = row.querySelector('.value');
+        var display = rawValue;
+        var unit = '';
+        if (paramCode === '00065') unit = ' ft';
+        else if (paramCode === '00060') unit = ' cfs';
+        else if (paramCode === '00010') {
+          display = ((parseFloat(rawValue) * 9 / 5) + 32).toFixed(1);
+          unit = ' °F';
+        }
+        else if (paramCode === '63680') unit = ' FNU';
+        valueSpan.textContent = display + unit;
+        valueSpan.style.color = 'var(--color-text)';
+      });
+    }
+
+    function showError(msg) {
+      var banner = document.createElement('div');
+      banner.setAttribute('role', 'alert');
+      banner.style.cssText = 'background:var(--color-destructive);color:#fff;padding:var(--space-sm) var(--space-xl);font-size:var(--text-body);';
+      banner.textContent = msg;
+      document.body.insertBefore(banner, document.body.firstChild);
+    }
+
+    function loadData() {
+      fetch(API_URL)
+        .then(function(res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function(json) {
+          var map = {};
+          json.value.timeSeries.forEach(function(ts) { map[ts.name] = ts; });
+          STATIONS.forEach(function(id) { populateCard(id, map); });
+        })
+        .catch(function() {
+          showError('Unable to load river conditions. Check your internet connection.');
+        });
+    }
+
+    document.querySelectorAll('.card[data-station]').forEach(function(card) {
+      var stationId = card.dataset.station;
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function() {
+        window.open('https://waterdata.usgs.gov/monitoring-location/' + stationId + '/', '_blank', 'noopener,noreferrer');
+      });
+    });
+
+    loadData();
+  })();
+  </script>
 </body>
 </html>
