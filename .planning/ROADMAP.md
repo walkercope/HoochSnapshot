@@ -42,8 +42,9 @@ Plans:
   3. Each card displays the resolved station name and station ID from the USGS API response
   4. Clicking any station card opens the correct USGS monitoring-location URL in a new browser tab
   5. The Buford Dam section shows either an embedded USACE iframe or a visible direct link if the iframe is blocked by X-Frame-Options
-**Plans:** TBD
-**UI hint:** yes
+**Plans:** 1 plan
+Plans:
+- [ ] 02-01-PLAN.md — Wire live USGS API fetch, DOM population, card click handlers, and USACE dam fallback link into hooch-snapshot.html
 
 ---
 
@@ -52,7 +53,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Static Shell | 1/1 | Complete | 2026-05-17 |
-| 2. Live Dashboard | 0/0 | Not started | - |
+| 2. Live Dashboard | 0/1 | Not started | - |
 
 ---
 
@@ -82,4 +83,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-05-17*
-*Updated: 2026-05-17 — Phase 1 planning complete (1 plan)*
+*Updated: 2026-05-17 — Phase 2 planning complete (1 plan)*
