@@ -716,7 +716,7 @@ None — no test infrastructure is applicable to this phase. All verification is
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Station name strategy (CARD-01)**
    - What we know: Phase 1 hardcoded short friendly names (`Norcross`, `Roswell`, etc.). CONTEXT.md says CARD-01 requires "station name resolved from USGS API." The API returns uppercase full names (`CHATTAHOOCHEE RIVER NEAR NORCROSS, GA`).
