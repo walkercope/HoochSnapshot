@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HoochSnapshot</title>
+  <style>
+    :root {
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+
+      --color-bg: #0f1117;
+      --color-surface: #1c1f26;
+      --color-surface-alt: #252830;
+      --color-accent: #3b82f6;
+      --color-border: #2e3138;
+      --color-text: #e2e8f0;
+      --color-text-muted: #8b92a5;
+      --color-destructive: #ef4444;
+
+      --text-body: 14px;
+      --text-label: 12px;
+      --text-heading: 18px;
+      --text-display: 24px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: var(--text-body);
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: var(--space-md) var(--space-xl);
+    }
+
+    header h1 {
+      font-size: var(--text-heading);
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0 0 var(--space-xs) 0;
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: var(--text-label);
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    #dam {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-2xl) var(--space-xl);
+    }
+
+    #dam h2 {
+      font-size: var(--text-display);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-text);
+      border-left: 3px solid var(--color-accent);
+      padding-left: var(--space-sm);
+      margin: 0 0 var(--space-md) 0;
+    }
+
+    #dam p {
+      color: var(--color-text-muted);
+      font-size: var(--text-body);
+      margin: 0;
+    }
+
+    #stations {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      padding: var(--space-lg) var(--space-xl);
+    }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+
+    .card-header {
+      background: var(--color-surface-alt);
+      padding: var(--space-sm) var(--space-md);
+      margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) var(--space-md) calc(-1 * var(--space-md));
+      border-radius: 8px 8px 0 0;
+    }
+
+    .card-header .station-name {
+      font-size: var(--text-heading);
+      font-weight: 600;
+      color: var(--color-text);
+      display: block;
+    }
+
+    .card-header .station-id {
+      font-size: var(--text-label);
+      color: var(--color-text-muted);
+      display: block;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .stat-row .label {
+      font-size: var(--text-label);
+      color: var(--color-text-muted);
+    }
+
+    .stat-row .value {
+      font-size: var(--text-body);
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>HoochSnapshot</h1>
+    <p>Chattahoochee River Conditions</p>
+  </header>
+
+  <main>
+
+    <section id="dam">
+      <h2>Buford Dam Release Schedule</h2>
+      <p>Dam release schedule will appear here.</p>
+    </section>
+
+    <section id="stations">
+
+      <!-- Station 1 -->
+      <div class="card" data-station="023344030">
+        <div class="card-header">
+          <span class="station-name">023344030</span>
+          <span class="station-id">023344030</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+      </div>
+
+      <!-- Station 2 -->
+      <div class="card" data-station="02335000">
+        <div class="card-header">
+          <span class="station-name">02335000</span>
+          <span class="station-id">02335000</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Turbidity</span>
+          <span class="value">— FNU</span>
+        </div>
+      </div>
+
+      <!-- Station 3 -->
+      <div class="card" data-station="02335450">
+        <div class="card-header">
+          <span class="station-name">02335450</span>
+          <span class="station-id">02335450</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+      </div>
+
+      <!-- Station 4 -->
+      <div class="card" data-station="02335815">
+        <div class="card-header">
+          <span class="station-name">02335815</span>
+          <span class="station-id">02335815</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+      </div>
+
+      <!-- Station 5 -->
+      <div class="card" data-station="02335880">
+        <div class="card-header">
+          <span class="station-name">02335880</span>
+          <span class="station-id">02335880</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Turbidity</span>
+          <span class="value">— FNU</span>
+        </div>
+      </div>
+
+      <!-- Station 6 -->
+      <div class="card" data-station="02336000">
+        <div class="card-header">
+          <span class="station-name">02336000</span>
+          <span class="station-id">02336000</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Turbidity</span>
+          <span class="value">— FNU</span>
+        </div>
+      </div>
+
+      <!-- Station 7 -->
+      <div class="card" data-station="02337170">
+        <div class="card-header">
+          <span class="station-name">02337170</span>
+          <span class="station-id">02337170</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+      </div>
+
+      <!-- Station 8 -->
+      <div class="card" data-station="02338000">
+        <div class="card-header">
+          <span class="station-name">02338000</span>
+          <span class="station-id">02338000</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+      </div>
+
+      <!-- Station 9 -->
+      <div class="card" data-station="02338500">
+        <div class="card-header">
+          <span class="station-name">02338500</span>
+          <span class="station-id">02338500</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Gage Height</span>
+          <span class="value">— ft</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Discharge</span>
+          <span class="value">— cfs</span>
+        </div>
+        <div class="stat-row">
+          <span class="label">Temperature</span>
+          <span class="value">— °F</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
