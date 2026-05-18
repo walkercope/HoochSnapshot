@@ -396,13 +396,24 @@
         }
         else if (paramCode === '63680') unit = ' FNU';
         valueSpan.textContent = display + unit;
+        var WARM_STATIONS = ['02335880','02336000','02337170','02338000','02338500'];
         if (paramCode === '63680') {
           var fnu = parseFloat(rawValue);
           valueSpan.style.color = fnu > 25 ? '#ef4444' : fnu > 15 ? '#f97316' : 'var(--color-text)';
+        } else if (paramCode === '00010' && WARM_STATIONS.indexOf(stationId) !== -1) {
+          var tempF = parseFloat(display);
+          valueSpan.style.color = tempF > 74 ? '#ef4444' : tempF > 70 ? '#f97316' : 'var(--color-text)';
         } else {
           valueSpan.style.color = 'var(--color-text)';
         }
       });
+
+      var borderColor = 'var(--color-border)';
+      card.querySelectorAll('.stat-row[data-param="00010"] .value, .stat-row[data-param="63680"] .value').forEach(function(span) {
+        if (span.style.color === '#ef4444') borderColor = '#ef4444';
+        else if (span.style.color === '#f97316' && borderColor !== '#ef4444') borderColor = '#f97316';
+      });
+      card.style.borderColor = borderColor;
     }
 
     function showError(msg) {
