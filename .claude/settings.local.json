@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:spatialdata.usace.army.mil)",
+      "WebFetch(domain:www.sam.usace.army.mil)",
+      "Bash(node \"C:/Users/CopeW/.claude/get-shit-done/bin/gsd-tools.cjs\" commit \"docs: initialize project\" --files .planning/PROJECT.md)",
+      "WebSearch",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

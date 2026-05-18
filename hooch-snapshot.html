@@ -396,7 +396,12 @@
         }
         else if (paramCode === '63680') unit = ' FNU';
         valueSpan.textContent = display + unit;
-        valueSpan.style.color = 'var(--color-text)';
+        if (paramCode === '63680') {
+          var fnu = parseFloat(rawValue);
+          valueSpan.style.color = fnu > 25 ? '#ef4444' : fnu > 15 ? '#f97316' : 'var(--color-text)';
+        } else {
+          valueSpan.style.color = 'var(--color-text)';
+        }
       });
     }
 
