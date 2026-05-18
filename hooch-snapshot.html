@@ -432,7 +432,11 @@
       });
     });
 
-    loadData();
+    if (window.location.protocol === 'file:') {
+      showError('Live data requires a local server. Run: python -m http.server 8000 — then open http://localhost:8000/hooch-snapshot.html');
+    } else {
+      loadData();
+    }
   })();
   </script>
 </body>
