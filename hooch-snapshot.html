@@ -85,6 +85,48 @@
       margin: 0;
     }
 
+    #dam-schedule {
+      margin-top: var(--space-md);
+    }
+
+    .schedule-date-label {
+      font-size: var(--text-label);
+      color: var(--color-text-muted);
+      margin: var(--space-md) 0 var(--space-sm) 0;
+    }
+
+    .schedule-date-label:first-child {
+      margin-top: 0;
+    }
+
+    .schedule-row {
+      display: flex;
+      gap: var(--space-lg);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-time {
+      flex: 1;
+      color: var(--color-text);
+    }
+
+    .schedule-gen {
+      color: var(--color-text-muted);
+      min-width: 56px;
+      text-align: right;
+    }
+
+    .schedule-flow {
+      color: var(--color-text-muted);
+      min-width: 140px;
+      text-align: right;
+    }
+
     #stations {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -154,7 +196,7 @@
     <section id="dam">
       <h2>Buford Dam Release Schedule</h2>
       <p id="dam-fallback"><a href="https://spatialdata.usace.army.mil/Hydropower/" target="_blank" rel="noopener noreferrer">View USACE Buford Dam Hydropower Schedule</a></p>
-      <iframe id="dam-iframe" src="https://spatialdata.usace.army.mil/Hydropower/" width="100%" height="500" style="border:none;display:none;margin-top:var(--space-md);" title="Buford Dam Release Schedule" loading="lazy"></iframe>
+      <div id="dam-schedule"></div>
     </section>
 
     <section id="stations">
@@ -363,6 +405,8 @@
     var PARAMS = ['00065','00060','00010','63680'];
     var API_URL = 'https://waterservices.usgs.gov/nwis/iv/?sites=' + STATIONS.join(',') + '&parameterCd=' + PARAMS.join(',') + '&format=json';
     var STALE_MS = 2 * 60 * 60 * 1000;
+    var SCHEDULE_URL = 'https://raw.githubusercontent.com/walkercope/BufordDamReleaseScraper/master/schedule.json';
+    var MIN_MW = 6;
 
     function getReading(map, stationId, paramCode) {
       var key = 'USGS:' + stationId + ':' + paramCode + ':00000';
@@ -416,6 +460,68 @@
       card.style.borderColor = borderColor;
     }
 
+    function renderDamSchedule(releases) {
+      var container = document.getElementById('dam-schedule');
+      if (!container) return;
+
+      if (releases.length === 0) {
+        var empty = document.createElement('p');
+        empty.style.cssText = 'color:var(--color-text-muted);margin:var(--space-md) 0 0 0;';
+        empty.textContent = 'No scheduled releases above minimum flow.';
+        container.appendChild(empty);
+        return;
+      }
+
+      var byDate = {};
+      var dates = [];
+      releases.forEach(function(r) {
+        if (!byDate[r.date]) { byDate[r.date] = []; dates.push(r.date); }
+        byDate[r.date].push(r);
+      });
+
+      dates.forEach(function(date) {
+        var label = document.createElement('div');
+        label.className = 'schedule-date-label';
+        label.textContent = date;
+        container.appendChild(label);
+
+        byDate[date].forEach(function(r) {
+          var row = document.createElement('div');
+          row.className = 'schedule-row';
+
+          var t = document.createElement('span');
+          t.className = 'schedule-time';
+          t.textContent = r.time_slot;
+
+          var g = document.createElement('span');
+          g.className = 'schedule-gen';
+          g.textContent = r.generation_mw + ' MW';
+
+          var f = document.createElement('span');
+          f.className = 'schedule-flow';
+          f.textContent = r.flow_rate_cfs + ' cfs';
+
+          row.appendChild(t);
+          row.appendChild(g);
+          row.appendChild(f);
+          container.appendChild(row);
+        });
+      });
+    }
+
+    function loadDamSchedule() {
+      fetch(SCHEDULE_URL)
+        .then(function(res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function(data) {
+          var releases = data.filter(function(r) { return r.generation_mw > MIN_MW; });
+          renderDamSchedule(releases);
+        })
+        .catch(function() {});
+    }
+
     function showError(msg) {
       var banner = document.createElement('div');
       banner.setAttribute('role', 'alert');
@@ -452,6 +558,7 @@
       showError('Live data requires a local server. Run: python -m http.server 8000 — then open http://localhost:8000/hooch-snapshot.html');
     } else {
       loadData();
+      loadDamSchedule();
     }
   })();
   </script>
